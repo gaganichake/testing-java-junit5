@@ -1,5 +1,7 @@
 package guru.springframework.sfgpetclinic.controllers;
 
+import java.io.FileNotFoundException;
+
 public class IndexController {
 
     public String index(){
@@ -7,7 +9,9 @@ public class IndexController {
         return "index";
     }
 
-    public String oopsHandler(){
-        return "notimplemented";
+    public String oopsHandler() throws FileNotFoundException {
+
+        throw new FileNotFoundException();
+
     }
 }
