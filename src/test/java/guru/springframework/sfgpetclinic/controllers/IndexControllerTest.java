@@ -1,10 +1,12 @@
 package guru.springframework.sfgpetclinic.controllers;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -36,5 +38,23 @@ class IndexControllerTest {
         //assertEquals("zzzz", controller.oopsHandler(), () -> "This is a very expensive message to build for my test. Using Lambda expression llows JUnit5 to evaluate it only in a failure condition");
         //assertEquals("notimplemented", controller.oopsHandler(), () -> "This is a very expensive message to build for my test. Using Lambda expression llows JUnit5 to evaluate it only in a failure condition");
 
+    }
+
+    @Disabled("Disabling the failed test case of Timeout")
+    @Test
+    void testTimeout(){
+        assertTimeout(Duration.ofMillis(100), () -> {
+            Thread.sleep(5000);// Simulating the behaviour that some code finished execution in 5 seconds
+            System.out.println("I will run for full 5 seconds even if code does not finish execution in 100 milliseconds");
+        });
+    }
+
+    @Disabled("Disabling the failed test case of Preemptive Timeout")
+    @Test
+    void testTimeoutPremp(){
+        assertTimeoutPreemptively(Duration.ofMillis(100), () -> {
+            Thread.sleep(5000);// Simulating the behaviour that some code finished execution in 5 seconds
+            System.out.println("I will try to terminate immediately if code does not finish execution in 100 milliseconds");
+        });
     }
 }
