@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.*;
 
 class IndexControllerTest {
 
@@ -56,5 +57,19 @@ class IndexControllerTest {
             Thread.sleep(5000);// Simulating the behaviour that some code finished execution in 5 seconds
             System.out.println("I will try to terminate immediately if code does not finish execution in 100 milliseconds");
         });
+    }
+
+    // With Assumptions tests are aborted if they fail and not counted as failed
+    @Test
+    void testAssumptionProdTrue(){
+
+        assumeTrue("Prod".equalsIgnoreCase(System.getenv("SERVER")));// Frequently used to test running environment
+    }
+
+    // With Assumptions tests are aborted if they fail and not counted as failed
+    @Test
+    void testAssumptionQATrue(){
+
+        assumeTrue("QA".equalsIgnoreCase("QA"));
     }
 }
