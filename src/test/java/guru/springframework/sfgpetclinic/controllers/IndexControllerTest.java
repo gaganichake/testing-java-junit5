@@ -9,6 +9,7 @@ import org.junit.jupiter.api.condition.*;
 import java.io.FileNotFoundException;
 import java.time.Duration;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.*;
 
@@ -108,5 +109,10 @@ class IndexControllerTest {
     @Test
     void testIfUserGagan(){
 
+    }
+
+    @Test
+    void testUsingAssertj(){
+        assertThat(controller.index()).isEqualTo("index");
     }
 }
