@@ -31,24 +31,4 @@ class PersonTest implements ModelTests {
                 () -> assertEquals("Noe", person.getLastName(), "Last Name Failed"));
         //Only the failed assertion within the group will be displayed on the console with the message.
     }
-
-    @RepeatedTest(10)
-    @DisplayName("My Repeated Test")
-    void myRepeatedTest(){
-        //TODO
-    }
-
-    // You can play with formatting
-    @RepeatedTest(value = 10, name = "{displayName} : {currentRepetition} - {totalRepetitions}")
-    @DisplayName("My Repeated Test")
-    void myRepeatedTestVersion2(){
-        //TODO
-    }
-
-    @RepeatedTest(5)
-    @DisplayName("My Repeated Test With Dependency Injection")
-    void myRepeatedTestWithDependencyInjection(TestInfo testInfo, RepetitionInfo repeatedInfo){
-        System.out.println(testInfo.getDisplayName() + ": " + repeatedInfo.getCurrentRepetition() + " - " + repeatedInfo.getTotalRepetitions());
-    }
-
 }
