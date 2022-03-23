@@ -3,7 +3,6 @@ package guru.springframework.sfgpetclinic.model;
 import guru.springframework.sfgpetclinic.ModelTests;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,7 +36,6 @@ class PersonTest implements ModelTests {
 
     @RepeatedTest(10)
     @DisplayName("My Repeated Test")
-    @Test
     void myRepeatedTest(){
         //TODO
     }
@@ -45,7 +43,6 @@ class PersonTest implements ModelTests {
     // You can play with formatting
     @RepeatedTest(value = 10, name = "{displayName} : {currentRepetition} - {totalRepetitions}")
     @DisplayName("My Repeated Test")
-    @Test
     void myRepeatedTestVersion2(){
         //TODO
     }
