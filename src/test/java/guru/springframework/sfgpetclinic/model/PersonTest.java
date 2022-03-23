@@ -1,6 +1,8 @@
 package guru.springframework.sfgpetclinic.model;
 
 import guru.springframework.sfgpetclinic.ModelTests;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -32,4 +34,20 @@ class PersonTest implements ModelTests {
                 () -> assertEquals("Noe", person.getLastName(), "Last Name Failed"));
         //Only the failed assertion within the group will be displayed on the console with the message.
     }
+
+    @RepeatedTest(10)
+    @DisplayName("My Repeated Test")
+    @Test
+    void myRepeatedTest(){
+        //TODO
+    }
+
+    // You can play with formatting
+    @RepeatedTest(value = 10, name = "{displayName} : {currentRepetition} - {totalRepetitions}")
+    @DisplayName("My Repeated Test")
+    @Test
+    void myRepeatedTestVersion2(){
+        //TODO
+    }
+
 }
